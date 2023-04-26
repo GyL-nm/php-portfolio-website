@@ -123,3 +123,15 @@
 
     padding-top: 1rem;
 }
+
+#back-button {
+    font-size: 4rem;
+    font-weight: bolder;
+    color: white;
+    
+
+    text-align: center;
+    margin-top: 2rem;
+    margin-left: 47.5%;
+    margin-right: 52.5%;
+}

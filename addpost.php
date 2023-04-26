@@ -1,13 +1,17 @@
 <?php
 error_reporting(E_ALL & ~E_NOTICE);
 
+function boolToString($bool) {
+    return ($bool) ? 'true' : 'false';
+}
+
+
 $indexURL = 'index.php';
 
 // session_start();
 // if ($_SESSION['login'] === false) { session_destroy(); }
 include 'sessionManager.php';
 if (!checkSession()) { session_destroy(); }
-
 if(session_status() !== PHP_SESSION_ACTIVE) { header('Location: '.$indexURL); }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -19,14 +23,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $conn = OpenCon();
 
-    $userId = 'SELECT `id` FROM `nmacfoy-phase2`.`users` WHERE `email` = "' .$user. '";';
+    $userIdQuery = 'SELECT `id` FROM `nmacfoy-phase2`.`users` WHERE `email` = "' .$user. '";';
+    $userIdResult = $conn->query($userIdQuery);
+    $userId = $userIdResult->fetch_assoc()['id'];
+
+    echo '<p style="color:red">' .$userId;
 
     $sql = 'INSERT INTO `nmacfoy-phase2`.`blog` (`userId`,`title`,`body`)
     VALUES (' .$userId. ', "' .$title. '", "' .$postBody. '");';
 
+    echo $sql;
+
     $queryResult = $conn->query($sql);
 
+    echo boolToString($queryResult) . '</p>';
+
     CloseCon($conn);
+
+    $postSuccessURL = 'postSuccess.php';
+    if ($queryResult) { header('Location: ' .$postSuccessURL); }
 }
 ?>
 
@@ -55,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div id="block1" class="block">
                 <section id="addpost">
                     <h1>Add Post</h1>
-                    <form onsubmit="return validateFormBeforeSubmit();" action="addpost.php" method="POST" id="addpost-form">
+                    <form onsubmit="return validateFormBeforeSubmit()" action="addpost.php" method="POST" id="addpost-form">
                         <fieldset>
                             <div class="post-field">
                                 <input type="text" name="title" id="postTitle-field" placeholder="blog title">
@@ -67,10 +82,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </fieldset>
 
                         <input type="submit" value="Post Blog" id="post-submit">
-                        <input type="reset" value="X" alt="Clear" id="post-reset">
+                        <input type="reset" onclick="clearBorders()" value="×" alt="Clear" id="post-reset">
                     </form>
 
-                    <?php echo ($_SERVER['REQUEST_METHOD'] === 'POST') ? ((!$queryResult) ? '<p id="error-msg"> failed to make post, try again later. </p>': '<p id="success-msg"> successfully posted. :) </p>') : ''; ?>
+                    <?php ($_SERVER['REQUEST_METHOD'] === 'POST' && !$queryResult) ? '<p id="error-msg"> failed to make post, try again later. :(</p>': ''; ?>
                 </section>
 
                 

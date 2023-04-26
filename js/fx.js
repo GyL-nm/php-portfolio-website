@@ -27,7 +27,9 @@ if (window.location.pathname == "/nmacfoy-phase2/about.php" ||
 }
 
 if (window.location.pathname == "/nmacfoy-phase2/index.php") {
-    const welcomeMsg = document.getElementById("welcome-msg");
+    const welcomeMsgElement = document.getElementById("welcome-msg");
 
-    document.addEventListener( "DOMContentLoaded", animateText(welcomeMsg, ["Welcome to my portfolio 👋", "Welcome to my portfolio 🖐"], 0, 1100) );
+    const welcomeMsg = welcomeMsgElement.innerHTML;
+
+    document.addEventListener( "DOMContentLoaded", animateText(welcomeMsgElement, [welcomeMsg +"👋", welcomeMsg +"🖐"], 0, 500) );
 }

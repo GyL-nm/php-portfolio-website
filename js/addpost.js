@@ -21,8 +21,23 @@ function validateFormBeforeSubmit() {
         event.preventDefault(); 
     }
 
-    let form = document.getElementById("addpost-form");
-    form.submit();
+    if (pass) {     
+        let form = document.getElementById("addpost-form");
+        form.submit();
+    }
 
     return pass;
+}
+
+function clearBorders() {
+    let titleField = document.getElementById("postTitle-field");
+    let bodyField = document.getElementById("postBody-field");
+    let errorMsg = document.getElementById("error-msg");
+    let successMsg = document.getElementById("success-msg");
+
+    titleField.style.border = "none";
+    bodyField.style.border = "none";
+
+    errorMsg.style.visibility = "hidden";
+    successMsg.style.visibility = "hidden";
 }

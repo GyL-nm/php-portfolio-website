@@ -1,6 +1,8 @@
 <?php
 include 'sessionManager.php';
 if (!checkSession()) { session_destroy(); }
+
+$pageMessage = (isset($_SESSION['login'])) ? "Yo, welcome back " : "Welcome to my portfolio ";
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +27,7 @@ if (!checkSession()) { session_destroy(); }
         <main id="pagebody-content" class="flexVert">
             <figure id="pagebody-logo">  <img id="pagebody-logo-img" src="img/logo.png" alt="main-logo"> </figure>
 
-            <section> <h1 id="welcome-msg"> Welcome to my portfolio 👋 </h1> </section>
+            <section> <h1 id="welcome-msg"> <?php echo $pageMessage ?> </h1> </section>
 
             <div id="links" class="flexbox"> 
                 <figure> <a href="https://github.com/Gylactic"> <img src="img/icon1.png" alt="icon1"> <figcaption><!-- GitHub--></figcaption> </a> </figure>
