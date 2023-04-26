@@ -1,0 +1,7 @@
+filter: drop-shadow(var(s1x,5px) var(s1y,-6px) 0 rgba(255,255,255,var(s1a,0.7))) 
+            drop-shadow(var(s2x,5px) var(s2y,-6px) 0 rgba(255,255,255,var(s2a,0.7))) 
+            drop-shadow(var(s3x,5px) var(s3y,-6px) 0 rgba(255,255,255,var(s3a,0.7)))
+            drop-shadow(var(s4x,5px) var(s4y,-6px) 0 rgba(255,255,255,var(s4a,0.7)))
+            drop-shadow(var(s5x,5px) var(s5y,-6px) 0 rgba(255,255,255,var(s5a,0.5)))
+            drop-shadow(var(s6x,5px) var(s6y,-6px) 0 rgba(255,255,255,var(s6a,0.5)))
+            drop-shadow(var(s7x,5px) var(s7y,-6px) 0 rgba(255,255,255,var(s7a,0.3)));

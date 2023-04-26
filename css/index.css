@@ -1,0 +1,80 @@
+@import "reset.css";
+
+@import "main.css";
+@import "topbar.css";
+
+main {
+    /* min-width: 100%;
+    min-height: 100%;
+    max-height: 80%;
+
+    margin-left: auto;
+    margin-right: auto; */
+
+    /* row-gap: .5rem; */
+
+    align-items: center;
+    justify-content: center;
+}
+
+#pagebody-content { 
+    color: white;
+
+    text-align: center;
+}
+
+
+
+#pagebody-logo img { 
+    position: relative;
+    
+    min-width: 0;
+    max-width: 15rem; 
+
+    min-height: 0;
+
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 2rem;
+
+    
+    /*box-shadow: 5px -6px rgba(255,255,255,0.7);*/
+
+    object-fit: contain;
+}
+
+#welcome-msg {
+    flex-shrink: 2;
+    font-size: 2.7rem;
+    white-space: nowrap;
+
+    font-weight: bold;
+
+    align-self: center;
+    
+    min-width: 0;
+    min-height: 0;
+    max-height: 10rem;
+
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#links {
+    min-width: 0;
+
+    gap: 5rem;
+}
+
+#links img {
+    max-width: 7rem;
+
+    object-fit: contain;
+
+    /* border: solid .2rem rgba(139,185,250,1);
+    border-radius: 10px; */
+}
+
+#links img:hover {
+    filter: brightness(80%);
+}
+

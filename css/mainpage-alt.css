@@ -1,0 +1,70 @@
+main#alt {
+    grid-template:  "block1 block1 block1 block2" 3fr
+                    "block1 block1 block1 block3" 2fr
+                    "block1 block1 block1 block3" 2fr;
+
+    gap: 1.5rem;
+
+    margin: 1rem;
+
+    height: 89vb;
+}
+
+main#alt #block1 {
+    grid-area: block1;
+    background: rgb(209,68,68);
+    background: linear-gradient(128deg, rgba(209,68,68,1) 0%, rgba(249,115,101,1) 49%, rgba(247,166,122,1) 100%);
+
+    min-width: 45rem;
+}
+
+main#alt #block2 {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    grid-area: block2;
+
+    background-color: rgb(192, 195, 210);
+
+    min-width: 20rem;
+
+    padding: 1rem 4rem 2rem 4rem;
+
+    border: solid .7rem rgb(211, 213, 230);
+}
+
+main#alt #block3 {
+    grid-template:  "block4 block4 block5" 4fr
+                    "block4 block4 block6" 2fr
+                    "block4 block4 block6" 2fr;
+    gap: 1rem;
+
+    grid-area: block3;
+
+}
+
+main#alt #block4 {
+    grid-area: block4;
+    background-color: rgb(119, 119, 247);
+
+    background: linear-gradient(90deg, rgba(130,130,255,.7) 0%, rgba(119,119,247,.7) 30%, rgba(139,0,255,0) 100%);
+    
+}
+
+main#alt #block5 {
+    grid-area: block5;
+    background-color: rgb(70, 139, 188);
+    background: linear-gradient(-90deg, rgba(70,139,188,.7) 0%, rgba(60,59,70,0) 100%);
+
+    margin: 0 0 0 0;
+}
+
+main#alt #block6 {
+    grid-area: block6;
+    background-color: rgb(139, 185, 250);
+    background: linear-gradient(-90deg, rgba(139,185,250,.7) 0%, rgba(60,59,70,0) 100%);
+    
+    gap: 1rem;
+}
