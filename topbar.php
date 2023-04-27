@@ -10,8 +10,6 @@
 
 $sessionActive = session_status() == PHP_SESSION_ACTIVE;
 
-$addBlogLink = ($sessionActive) ? 'addpost.php' : 'login.php';
-
 $loginButton = '<div class="topbar-overlay" id="login-button"> <a href="login.php" id="link-login"> login </a> </div>';
 $logoutButton = '<div class="topbar-overlay" id="logout-button"> <a href="logoutHandler.php" id="link-logout"> logout </a> </div>'
 ?>
@@ -26,7 +24,7 @@ $logoutButton = '<div class="topbar-overlay" id="logout-button"> <a href="logout
             <a href="" id="link-njabumacfoy"> njabu.macfoy </a>
             <a href="education.php" id="link-education"> education </a>
             <a href="projects.php" id="link-projects"> projects </a>
-            <a href=<?php echo $addBlogLink ?> id="link-blog"> blog </a>
+            <a href="viewBlog.php" id="link-blog"> blog </a>
         </nav>
     </div>
     <?php echo ($sessionActive && $_SESSION['login'] === true) ? $logoutButton: $loginButton; ?> 

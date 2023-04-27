@@ -28,7 +28,12 @@ if (!checkSession()) { session_destroy(); }
                 <section id="block-empty" class="flexVert">
                     <h1> Blog:posts </h1>
                     <div id="content">
+                        <?php 
+                        require_once('blogHandler.php');
+                        displayBlog();
+                        ?>
                     </div>
+                    <a href="addpost.php" id="addpostLink">+</a>
                 </section>
                 <div id="block2" class="block"></div>
 

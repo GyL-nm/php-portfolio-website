@@ -1,26 +1,29 @@
 <?php 
 include 'db-connect.php';
 
-include 'sessionManager.php';
-if (!checkSession()) { session_destroy(); }
-
 function fetchBlog() {
     $conn = OpenCon();
 
-    $sql = 'SELECT `timestamp`,`userId`,`title`,`body` FROM `nmacfoy-phase2`.`blog`;';
+    $sql = 'SELECT `id`,`timestamp`,`userId`,`title`,`body` FROM `nmacfoy-phase2`.`blog`;';
 
-    $queryResult = $conn->query($sql)->fetch_array();
+    $queryResult = $conn->query($sql);
 
+    $ret = [];
+    while($row = $queryResult->fetch_assoc()) {
+        $ret[] = $row;
+    }
     CloseCon($conn);
 
-    return $queryResult;
+    return $ret;
 }
 
-function sortBlog($blogArray) {
-    $timestamps = array_column($blogArray, 'timestamp');
-    $sortedBlog = array_multisort($timestamps, SORT_DESC, $blogArray);
-    return $sortedBlog;
-}
+// function sortBlog($blogArray) {
+//     $timestamps = array_column($blogArray, 'timestamp');
+//     echo var_dump($timestamps);
+//     array_multisort($timestamps, SORT_DESC, $blogArray);
+//     echo var_dump($timestamps);
+//     return $blogArray;
+// }
 
 function fetchUsername($blogAssoc) {
     $conn = OpenCon();
@@ -29,7 +32,7 @@ function fetchUsername($blogAssoc) {
     'SELECT `users`.`username` 
     FROM `blog` 
     INNER JOIN `users` ON `blog`.`userId`=`users`.`id` 
-    WHERE `blog`.`id` = '+$blogAssoc['id']+';';
+    WHERE `blog`.`id` = '.$blogAssoc['id'].';';
     $queryResult = $conn->query($sql)->fetch_assoc()['username'];
 
     CloseCon($conn);
@@ -44,19 +47,28 @@ function generateBlogPost($index, $blogAssoc) {
     $postBody = $blogAssoc['body'];
     $timestamp = $blogAssoc['timestamp'];
 
-    $readableDate = date('h:i d/m/Y', $timestamp);
+    $formatTime = date('h:i a', strtotime($timestamp));
+    $formatDate = date('d F Y', strtotime($timestamp));
 
     $html = 
 '<section id="blog'.$index.'" class="blogpostContainer">
     <div id="blog'.$index.'title" class="blogpostTitleContainer flexbox">
-        <h1 class="blogUsername">' .$username. '</h1>
-        <h1 class="blogTitle">' .$title. '</h1>
-        <h1 class="blogTimestamp">' .$readableDate. '</h1>
+        <h3 class="blogUsername">by</br>' .$username. '</h3>
+        <h3 class="blogTitle">' .$title. '</h3>
+        <h3 class="blogTimestamp">posted </br>' .$formatTime. '</br>' .$formatDate. '</h3>
     </div>
     <p class="postBody">' .$postBody. '</p>
 </section>';
 
-    echo $html;
+    return $html;
+}
+
+function displayBlog() {
+    $blog = fetchBlog();
+
+    for ($i = sizeof($blog)-1; $i >= 0; $i--) {
+        echo generateBlogPost($i, $blog[$i]);
+    }
 }
 
 ?>

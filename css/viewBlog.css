@@ -34,13 +34,12 @@ main#about-page {
 
     background-color : rgb(138, 47, 47);
     background: linear-gradient(153deg, rgb(219, 136, 136) 0%, rgb(187, 85, 71) 20%, rgb(138, 47, 47) 83%);
-    max-width: 100%; 
-    height:100%; 
+    max-width: 100%;
+    min-height: 30rem; 
+    max-height:40rem; 
     overflow-y:scroll; 
     overflow-x:hidden; 
 }
-
-#block-empty p { font-size: 2rem; max-width: 45rem; padding: 1rem;}
 
 em { font-size: 1.1em; font-weight: bold;}
 
@@ -50,6 +49,65 @@ em { font-size: 1.1em; font-weight: bold;}
 .blogpostContainer {
     background-color : rgb(138, 47, 47);
     color: white;
+
+    margin: 2rem;
+    padding: 1rem;
+
+    overflow-y:auto; 
+    overflow-x:hidden; 
+
+    min-height: 0;
+
+    border: dashed .2rem white;
+}
+
+.postBody {
+    font-size: 1rem;
+    padding: 1rem;
+
+    white-space: pre-wrap;
+}
+
+.blogpostTitleContainer {
+    justify-content: space-around;
+    font-size: 100%;
+
+    align-items: flex-start;
+    
+    padding: 1rem;
+
+    gap: 2rem;
+}
+.blogTitle {
+    width:100%;
+
+
+    font-size: 200%;
+    text-align: center;
+    font-weight: bold;
+
+    align-self: flex-start;
+}
+.blogUsername {
+    width: 100%;
+}
+.blogTimestamp {
+    width:100%;
+    text-align: right;
+}
+
+#addpostLink {
+    background: none;
+
+    font-size: 4rem;
+    font-weight: bolder;
+    color: white;
+    
+
+    text-align: center;
+    margin-top: 2rem;
+    margin-left: 47.5%;
+    margin-right: 52.5%;
 }
 
 #block2 {

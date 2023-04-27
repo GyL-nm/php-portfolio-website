@@ -69,6 +69,7 @@
 
     overflow-y: scroll;
     resize: none;
+    white-space:pre-wrap;
 }
 
 #addpost input::placeholder, textarea::placeholder {
