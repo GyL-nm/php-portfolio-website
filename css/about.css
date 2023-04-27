@@ -1,25 +1,13 @@
 @import "reset.css";
 
 @import "main.css";
-@import "topbar.css";
 
-main#about-page { 
-    grid-template:  "block-empty block-empty block2" 1fr
-                    "block-empty block-empty block3" 2fr
-                    "block-empty block-empty block3" 2fr;
-
-    margin: 1rem;
-
-    min-height: 40rem;
-    max-height: 100rem;
-}
-
-#block-empty { 
+#block1 { 
     grid-template:  "header" 5rem 
                     "content" 32rem
                     "buttons" 10rem;
 
-    grid-area: block-empty;
+    grid-area: block1;
     background-color: rgb(247,162,151);
     background: linear-gradient(153deg, rgba(247,162,151,1) 0%, rgb(231, 146, 134) 20%, rgb(221, 95, 95) 83%);
 
@@ -28,19 +16,19 @@ main#about-page {
     min-width: 38rem;
 }
 
-#block-empty h1 { grid-area: header; font-size: 3rem; font-weight: bolder; margin-bottom: 1rem; }
-#block-empty h2 { font-size: 2.5rem; font-weight: 400; }
+#block1 h1 { grid-area: header; font-size: 3rem; font-weight: bolder; margin-bottom: 1rem; }
+#block1 h2 { font-size: 2.5rem; font-weight: 400; }
 
-#block-empty img { width: 20rem; border: solid .1rem; margin-bottom: 2rem;}
+#block1 img { width: 20rem; border: solid .1rem; margin-bottom: 2rem;}
 
-#block-empty #content { grid-area: content; max-width: 580px; }
+#block1 #content { grid-area: content; max-width: 580px; }
 
-#block-empty p { font-size: 2rem; max-width: 45rem; padding: 1rem;}
+#block1 p { font-size: 2rem; max-width: 45rem; padding: 1rem;}
 
 em { font-size: 1.1em; font-weight: bold;}
 
-#block-empty ul { font-size: 1.5rem; margin-left: 4rem; }
-#block-empty li { padding: .5rem;}
+#block1 ul { font-size: 1.5rem; margin-left: 4rem; }
+#block1 li { padding: .5rem;}
 
 
 .bullet-points { list-style:circle; }
@@ -49,31 +37,6 @@ em { font-size: 1.1em; font-weight: bold;}
 
 nav#buttons { grid-area: buttons;}
 
-#block-empty a#nextpage-button, a#prevpage-button { font-size: 8rem; font-weight: bolder; }
+#block1 a#nextpage-button, a#prevpage-button { font-size: 8rem; font-weight: bolder; }
 
-#block-empty a#nextpage-button:hover, a#prevpage-button:hover { color: white; }
-
-#block2 {
-    justify-content: center;
-    align-items: center;
-
-    grid-area: block2;
-
-    background-color: rgb(192, 195, 210);
-
-    padding: 1rem 4rem 2rem 4rem;
-
-    border: solid .7rem rgb(211, 213, 230);
-}
-
-#block3 {
-    gap: 1rem;
-
-    grid-area: block3;
-    background-color: rgb(130, 130, 255);
-
-    padding: 1rem;
-
-    min-height: 28.7rem;
-    min-width: 25rem;
-}
+#block1 a#nextpage-button:hover, a#prevpage-button:hover { color: white; }

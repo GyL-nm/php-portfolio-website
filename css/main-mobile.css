@@ -5,8 +5,7 @@ font-family: 'Merriweather', serif;
  */
 
  /* General classes and styles */
-
-body {
+ body {
     background-color: rgb(28, 23, 32);
     
     min-height: 0;
@@ -18,24 +17,44 @@ body {
     overflow: hidden;
 }
 
+@media only screen and (max-height: 860px) {
+    body {
+        overflow:auto;
+    }
+  }
+
+.container-grid { display: grid; }
+
+.flexbox { display: flex; }
+
+.flexVert { display: flex; flex-direction: column; }
+
+input[type="submit"]:hover { filter: brightness(95%); }
+
+/* Main page collage design */
+
 main {
+    grid-template:  "block1 block1 block1 block2" 1fr
+                    "block1 block1 block1 block3" 2fr
+                    "block1 block1 block1 block3" 2fr;
+
     gap: 1.5rem;
 
-    margin: 1rem;
+    margin: 7rem;
 
     min-height: 40rem;
-    max-height: 50rem;
+    max-height: 100rem;
 }
 
 main .hover-block:hover { filter: brightness(105%) blur(0px); }
 
-#block1 {
+main #block1 {
     grid-area: block1;
     background: rgb(209,68,68);
     background: linear-gradient(128deg, rgba(209,68,68,1) 0%, rgba(249,115,101,1) 49%, rgba(247,166,122,1) 100%);
 }
 
-#block2 {
+main #block2 {
     justify-content: center;
     align-items: center;
 
@@ -43,15 +62,27 @@ main .hover-block:hover { filter: brightness(105%) blur(0px); }
 
     background-color: rgb(192, 195, 210);
 
+    padding: 1rem 4rem 2rem 4rem;
+
     border: solid .7rem rgb(211, 213, 230);
 }
 
-#block3 {
+main #block3 {
+    grid-template:  "block4 block4 block5" 4fr
+                    "block4 block4 block6" 2fr
+                    "block4 block4 block6" 2fr;
+    gap: 1rem;
+
     grid-area: block3;
     background-color: rgb(130, 130, 255);
+
+    padding: 1rem;
+
+    min-height: 28.7rem;
+    min-width: 25rem;
 }
 
-#block4 {
+main #block4 {
     grid-area: block4;
     background-color: rgb(119, 119, 247);
 
@@ -60,7 +91,7 @@ main .hover-block:hover { filter: brightness(105%) blur(0px); }
     min-height: 14rem;
 }
 
-#block5 {
+main #block5 {
     grid-area: block5;
 
     border-left: solid 1rem rgb(155, 208, 247);
@@ -73,7 +104,7 @@ main .hover-block:hover { filter: brightness(105%) blur(0px); }
     min-height: 14rem;
 }
 
-#block6 {
+main #block6 {
     grid-area: block6;
     
 
@@ -82,50 +113,4 @@ main .hover-block:hover { filter: brightness(105%) blur(0px); }
 
     gap: 1rem;
     min-height: 12rem;
-}
-
-input[type="submit"]:hover { filter: brightness(95%); }
-
-@media only screen and (max-height: 970px) { body { overflow-y:auto; } }
-@media only screen and (max-width: 600px) { body { overflow-x:auto; } }
-
-.container-grid { display: grid; }
-
-    .flexbox { display: flex; }
-
-    .flexVert { display: flex; flex-direction: column; }
-
-@media only screen and (min-width: 769px) {
-    /* Main page collage design */
-
-    main {
-        grid-template:  "block1 block1 block1 block2" 1fr
-                        "block1 block1 block1 block3" 2fr
-                        "block1 block1 block1 block3" 2fr;
-    }
-
-    #block2 { padding: 1rem 4rem 2rem 4rem; }
-
-    #block3 {
-        grid-template:  "block4 block4 block5" 4fr
-                        "block4 block4 block6" 2fr
-                        "block4 block4 block6" 2fr;
-        gap: 1rem;
-    
-        min-height: 28.7rem;
-        min-width: 25rem;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    /* Main page collage design */
-
-    main {
-        max-height: 20rem;
-        grid-template:  "block1 block1" 3fr
-                        "block3 block2" auto;
-    }
-
-    #block2, #block3 { height: 10rem; min-width: 0; margin-bottom: 1rem;}
-    #block4, #block5, #block6 { visibility: hidden; }
 }

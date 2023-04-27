@@ -34,5 +34,4 @@
     </nav>
 
     <script src="js/fx.js"></script>
-    <script src="js/about.js"></script>
 </html>

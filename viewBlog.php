@@ -25,12 +25,13 @@ if (!checkSession()) { session_destroy(); }
 
         
             <main id="about-page" class="container-grid">
-                <section id="block-empty" class="flexVert">
+                <section id="block1" class="flexVert">
                     <h1> Blog:posts </h1>
                     <div id="content">
                         <?php 
                         require_once('blogHandler.php');
-                        displayBlog();
+                        if (!displayBlog()) { echo '<p id="blogNotice"> There are no blog posts atm :( </br> how about you post something ;)</p>'; }
+                        else { echo '<p id="blogNotice"> -- END -- </p>'; }
                         ?>
                     </div>
                     <a href="addpost.php" id="addpostLink">+</a>

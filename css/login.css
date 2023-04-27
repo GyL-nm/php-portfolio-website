@@ -1,11 +1,25 @@
 @import "reset.css";
 
 @import "main.css";
-@import "topbar.css";
 
 fieldset { border: none; }
 
 main { grid-template-columns: 3fr 1fr; }
+
+main #block2 {
+    justify-content: center;
+    align-items: center;
+
+    grid-area: block2;
+
+    background-color: rgb(192, 195, 210);
+
+    padding: 1rem 4rem 2rem 4rem;
+
+    border: solid .7rem rgb(211, 213, 230);
+
+    
+}
 
 #block2 { min-width: 24rem; }
 
@@ -60,5 +74,41 @@ main { grid-template-columns: 3fr 1fr; }
     font-weight: bold;
 
     padding-top: 1rem;
+}
+
+@media only screen and (min-width: 769px) {
+    /* Main page collage design */
+
+    main {
+        grid-template:  "block1 block1 block1 block2" 1fr
+                        "block1 block1 block1 block3" 2fr
+                        "block1 block1 block1 block3" 2fr;
+    }
+
+
+    #block3 {
+        grid-template:  "block4 block4 block5" 4fr
+                        "block4 block4 block6" 2fr
+                        "block4 block4 block6" 2fr;
+        gap: 1rem;
+    
+        min-height: 28.7rem;
+        min-width: 25rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    /* Main page collage design */
+
+    main {
+        max-height: 20rem;
+        grid-template:  "block2 block2" 1fr
+                        "block1 block3" 2fr;
+    }
+
+    #block2 { height: 15rem; margin-bottom: 0;}
+    #block1, #block3 { height: 23rem; min-width: 0; }
+    
+    
 }
 

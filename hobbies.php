@@ -24,7 +24,7 @@ if (!checkSession()) { session_destroy(); }
         require_once('footer.php') ?>
         
             <main id="about-page" class="container-grid">
-                <section id="block-empty" class="container-grid">
+                <section id="block1" class="container-grid">
                     <h1> about me:hobbies </h1>
 
                     <div id="content">

@@ -66,9 +66,13 @@ function generateBlogPost($index, $blogAssoc) {
 function displayBlog() {
     $blog = fetchBlog();
 
+    $blogNotEmpty = false;
     for ($i = sizeof($blog)-1; $i >= 0; $i--) {
         echo generateBlogPost($i, $blog[$i]);
+        $blogNotEmpty = true;
     }
+
+    return $blogNotEmpty;
 }
 
 ?>

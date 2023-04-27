@@ -25,7 +25,7 @@ if (!checkSession()) { session_destroy(); }
 
         
             <main id="about-page" class="container-grid">
-                <section id="block-empty" class="container-grid">
+                <section id="block1" class="container-grid">
                     <h1> Projects </h1>
 
                     <div id="content">

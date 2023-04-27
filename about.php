@@ -24,8 +24,8 @@ if (!checkSession()) { session_destroy(); }
         require_once('footer.php') ?>
 
         
-            <main id="about-page" class="container-grid">
-                <section id="block-empty" class="container-grid">
+            <main class="container-grid">
+                <section id="block1" class="container-grid">
                     <h1> about me:intro </h1>
 
                     <div id="content">
@@ -45,7 +45,5 @@ if (!checkSession()) { session_destroy(); }
                 </div>
             </main>
         </div>
-
-        <script src="js/about.js"></script>
     </body>
 </html>

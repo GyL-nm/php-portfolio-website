@@ -14,6 +14,10 @@ $loginButton = '<div class="topbar-overlay" id="login-button"> <a href="login.ph
 $logoutButton = '<div class="topbar-overlay" id="logout-button"> <a href="logoutHandler.php" id="link-logout"> logout </a> </div>'
 ?>
 
+<head>
+    <link rel="stylesheet" href="css/topbar.css">
+</head>
+
 <header id="topbar" class="flexbox">
     <div class="topbar-overlay"> <figure id="topbar-logo"> <a href="index.php" id="link-home"> <img src="img/logo.png" alt="logo"> </a> </figure> </div>
     <div class="outer">
@@ -21,7 +25,7 @@ $logoutButton = '<div class="topbar-overlay" id="logout-button"> <a href="logout
             <a href="about.php" id="link-aboutme"> about me </a>
             <a href="experience.php" id="link-experience"> experience </a>
             <a href="skills.php" id="link-skills"> skills </a>
-            <a href="" id="link-njabumacfoy"> njabu.macfoy </a>
+            <a href="index.php" id="link-njabumacfoy"> njabu.macfoy </a>
             <a href="education.php" id="link-education"> education </a>
             <a href="projects.php" id="link-projects"> projects </a>
             <a href="viewBlog.php" id="link-blog"> blog </a>
