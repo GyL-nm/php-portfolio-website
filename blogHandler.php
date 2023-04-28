@@ -17,13 +17,9 @@ function fetchBlog() {
     return $ret;
 }
 
-// function sortBlog($blogArray) {
-//     $timestamps = array_column($blogArray, 'timestamp');
-//     echo var_dump($timestamps);
-//     array_multisort($timestamps, SORT_DESC, $blogArray);
-//     echo var_dump($timestamps);
-//     return $blogArray;
-// }
+function sortBlog(&$blogArray) {
+    return usort($blogArray, function($a,$b) { return strnatcmp($b['timestamp'], $a['timestamp']); }) && sizeof($blogArray);
+}
 
 function fetchUsername($blogAssoc) {
     $conn = OpenCon();
@@ -65,14 +61,13 @@ function generateBlogPost($index, $blogAssoc) {
 
 function displayBlog() {
     $blog = fetchBlog();
+    if(!sortBlog($blog)) { return false; }
 
-    $blogNotEmpty = false;
-    for ($i = sizeof($blog)-1; $i >= 0; $i--) {
+    for ($i = 0; $i < sizeof($blog); $i++) {
         echo generateBlogPost($i, $blog[$i]);
-        $blogNotEmpty = true;
     }
 
-    return $blogNotEmpty;
+    return true;
 }
 
 ?>

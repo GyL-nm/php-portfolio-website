@@ -26,13 +26,16 @@ if (!checkSession()) { session_destroy(); }
         
             <main id="about-page" class="container-grid">
                 <section id="block1" class="container-grid">
-                    <h1> Experience </h1>
+                    <h1> about me:experience </h1>
 
                     <div id="content">
-                        <p> WIP </p>
+                        <p id="animated-cursor"> As an undergraduate, I am currently seeking opportunities to gain industry experience. 
+                            While I may not have prior professional experience, I am a quick learner, a critical thinker, and a dedicated individual who is eager to make valuable contributions to any organization. 
+                            Through my academic pursuits, passion projects, and hobbyist work, I have developed a strong work ethic and a passion for tackling challenges. 
+                            I am confident that I can apply these qualities to any role and excel in the industry. </p>
                     </div>
 
-                    <nav id="buttons"></nav>
+                    <?php require_once('about-navigation-buttons.php'); ?>
                 </section>
                 <div id="block2" class="block"></div>
 

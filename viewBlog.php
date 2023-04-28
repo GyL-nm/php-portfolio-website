@@ -27,6 +27,7 @@ if (!checkSession()) { session_destroy(); }
             <main id="about-page" class="container-grid">
                 <section id="block1" class="flexVert">
                     <h1> Blog:posts </h1>
+                    
                     <div id="content">
                         <?php 
                         require_once('blogHandler.php');

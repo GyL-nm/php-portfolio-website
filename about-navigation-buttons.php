@@ -1,5 +1,5 @@
 <?php
-    $aboutPages = ["about.php","hobbies.php","education.php"];
+    $aboutPages = ["about.php","hobbies.php","education.php","experience.php","skills.php","projects.php"];
     $currentPage = 0;
     $prev = $aboutPages[$currentPage];
     $next = $aboutPages[$currentPage];

@@ -2,7 +2,9 @@ footer {
     position: fixed;
     height: 15rem;
 
-    bottom: -12rem;
+    bottom: -11.5rem;
+
+    right: .5rem;
 
     color: white;
     font-weight: bold;

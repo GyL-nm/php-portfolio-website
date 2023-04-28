@@ -33,7 +33,9 @@ em { font-size: 1.1em; font-weight: bold;}
 
 .bullet-points { list-style:circle; }
 .nested > li:before { content: "└─"; }
-.no-points { list-style: none;}
+.no-points { list-style: none; }
+
+.styled-link { color: rgb(165, 105, 78); text-decoration: underline; }
 
 nav#buttons { grid-area: buttons;}
 

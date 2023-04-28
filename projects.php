@@ -26,13 +26,13 @@ if (!checkSession()) { session_destroy(); }
         
             <main id="about-page" class="container-grid">
                 <section id="block1" class="container-grid">
-                    <h1> Projects </h1>
+                    <h1> about me:projects </h1>
 
                     <div id="content">
-                        <p> WIP </p>
+                        <p id="animated-cursor"> I have no active projects as of late. Check my <a href="viewBlog.php" class="styled-link">blogposts</a> any ongoing project updates. </p>
                     </div>
 
-                    <nav id="buttons"></nav>
+                    <?php require_once('about-navigation-buttons.php'); ?>
                 </section>
                 <div id="block2" class="block"></div>
 

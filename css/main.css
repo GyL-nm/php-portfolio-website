@@ -6,6 +6,13 @@ font-family: 'Merriweather', serif;
 
  /* General classes and styles */
 
+.container-grid { display: grid; }
+
+.flexbox { display: flex; }
+.inline-flex { display: inline-flex;}
+
+.flexVert { display: flex; flex-direction: column; }
+
 body {
     background-color: rgb(28, 23, 32);
     
@@ -88,12 +95,6 @@ input[type="submit"]:hover { filter: brightness(95%); }
 
 @media only screen and (max-height: 970px) { body { overflow-y:auto; } }
 @media only screen and (max-width: 600px) { body { overflow-x:auto; } }
-
-.container-grid { display: grid; }
-
-    .flexbox { display: flex; }
-
-    .flexVert { display: flex; flex-direction: column; }
 
 @media only screen and (min-width: 769px) {
     /* Main page collage design */

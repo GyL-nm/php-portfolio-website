@@ -25,13 +25,20 @@ if (!checkSession()) { session_destroy(); }
 
             <main id="about-page" class="container-grid">
                 <section id="block1" class="container-grid">
-                    <h1> Skills </h1>
+                    <h1> about me:skills </h1>
 
                     <div id="content">
-                        <p> WIP </p>
+                        <p> 
+                            <ul class="bullet-points">
+                                <li>Proficient in programming languages such as Java, Python, and C++</li>
+                                <li>Experienced in web development technologies, such as HTML, CSS, and JavaScript.</li>
+                                <li>Familiarity  with software development tools and platforms, including Git, GitHub, VSCode and IntelliJ IDEA</li>
+                                <li id="animated-cursor">Skilled in database management and SQL</li>
+                            </ul>
+                        </p>
                     </div>
 
-                    <nav id="buttons"></nav>
+                    <?php require_once('about-navigation-buttons.php'); ?>
                 </section>
                 <div id="block2" class="block"></div>
 

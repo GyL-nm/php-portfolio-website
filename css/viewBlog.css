@@ -21,6 +21,36 @@
     overflow-x:hidden; 
 }
 
+#month-selector 
+{
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+
+    gap: 1rem;
+
+    padding: .2rem;
+    margin: .5rem;
+    margin-left: 0;
+
+    width: min-content;
+    border: solid .5rem white;
+}
+
+#month-selector button {
+    background: none;
+    border: none;
+
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+#month-selector button:hover {
+    cursor: pointer;
+    filter: brightness(0.6);
+}
+
 em { font-size: 1.1em; font-weight: bold;}
 
 #block1 ul { font-size: 1.5rem; margin-left: 4rem; }
