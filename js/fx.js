@@ -17,7 +17,10 @@ function animateText (element, states, state, delay) {
 
 if (window.location.pathname == "/nmacfoy-phase2/about.php" || 
     window.location.pathname == "/nmacfoy-phase2/hobbies.php" || 
-    window.location.pathname == "/nmacfoy-phase2/education.php" ) {
+    window.location.pathname == "/nmacfoy-phase2/education.php" || 
+    window.location.pathname == "/nmacfoy-phase2/experience.php"|| 
+    window.location.pathname == "/nmacfoy-phase2/skills.php"|| 
+    window.location.pathname == "/nmacfoy-phase2/projects.php") {
         const nextButton = document.getElementById("nextpage-button");
         const aboutTextCursorElement = document.getElementById("animated-cursor");
 

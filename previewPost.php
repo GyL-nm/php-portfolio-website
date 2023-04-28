@@ -69,9 +69,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div id="block1" class="block">
                 <section id="addpost">
-                    <h1 id="form-title">Add Post</h1>
-                    <form onsubmit="return validateFormBeforeSubmit()" action="addPost.php" method="POST" id="addpost-form">
-                        <fieldset id="addpost-fields">
+                    <h1>Add Post</h1>
+                    <form onsubmit="return validateFormBeforeSubmit()" action="addpost.php" method="POST" id="addpost-form">
+                        <fieldset>
                             <div class="post-field">
                                 <input type="text" name="title" id="postTitle-field" placeholder="blog title">
                             </div>
@@ -81,27 +81,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                         </fieldset>
 
-                        <div id="previewWindow">
-                            <section id="blogPreview" class="blogpostContainer">
-                                <div id="blogPreviewTitle" class="blogpostTitleContainer flexbox">
-                                    <h3 class="blogUsername">by</br> You </h3>
-                                    <h3 id="blogTitle" class="blogTitle"> +title+ </h3>
-                                    <h3 id="blogTimestamp" class="blogTimestamp">posted </br> +formatTime+ </br> +formatDate+ </h3>
-                                </div>
-                                <p id="blogBody" class="postBody"> +postBody+ </p>
-                            </section>
-                        </div>
+                        <section id="blogPreview" class="blogpostContainer">
+                            <div id="blogPreviewTitle" class="blogpostTitleContainer flexbox">
+                                <h3 class="blogUsername">by</br> You </h3>
+                                <h3 class="blogTitle"> +title+ </h3>
+                                <h3 class="blogTimestamp">posted </br> +formatTime+ </br> +formatDate+ </h3>
+                            </div>
+                            <p class="postBody"> +postBody+ </p>
+                        </section>
 
                         <input type="submit" value="Upload Post" id="post-submit">
-                        <input type="reset" onclick="clearBorders()" value="×" alt="Clear" id="post-reset">
                     </form>
-                    <button id="post-preview" onclick="previewPost()">Preview post</button>
-                    <button id="post-edit" onclick="showAddpost()">Edit</button>
+                    <button id="post-edit" onclick="returnToEdit()">Edit</button>
 
                     <?php ($_SERVER['REQUEST_METHOD'] === 'POST' && !$queryResult) ? '<p id="error-msg"> failed to make post, try again later. :(</p>': ''; ?>
                 </section>
-
-                
 
                 <script src="js/addpost.js"></script>
             </div>
@@ -115,32 +109,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </main>
     </body>
 </html>
-
-<h1 id="form-title">Add Post</h1>
-<form onsubmit="return validateFormBeforeSubmit()" action="addPost.php" method="POST" id="addpost-form">
-    <fieldset id="addpost-fields">
-        <div class="post-field">
-            <input type="text" name="title" id="postTitle-field" placeholder="blog title">
-        </div>
-
-        <div class="post-field">
-            <textarea type="text" name="body" id="postBody-field" placeholder="enter here..."></textarea>
-        </div>
-    </fieldset>
-
-    <div id="previewWindow">
-        <section id="blogPreview" class="blogpostContainer">
-            <div id="blogPreviewTitle" class="blogpostTitleContainer flexbox">
-                <h3 class="blogUsername">by</br> You </h3>
-                <h3 id="blogTitle" class="blogTitle"> +title+ </h3>
-                <h3 id="blogTimestamp" class="blogTimestamp">posted </br> +formatTime+ </br> +formatDate+ </h3>
-            </div>
-            <p id="blogBody" class="postBody"> +postBody+ </p>
-        </section>
-    </div>
-
-    <input type="submit" value="Upload Post" id="post-submit">
-    <input type="reset" onclick="clearBorders()" value="×" alt="Clear" id="post-reset">
-</form>
-<button id="post-preview" onclick="previewPost()">Preview post</button>
-<button id="post-edit" onclick="showAddpost()">Edit</button>

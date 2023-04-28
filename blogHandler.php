@@ -70,4 +70,24 @@ function displayBlog() {
     return true;
 }
 
+function displayBlogMonth($month) {
+    $blog = fetchBlog();
+
+    $blogMonth = [];
+    foreach ($blog as $post) {
+        $postMonth = intval(date('m', strtotime($post['timestamp'])));
+        if ($postMonth == $month) {
+            $blogMonth[] = $post;
+        }
+    }
+
+    if(!sortBlog($blogMonth)) { return false; }
+
+    for ($i = 0; $i < sizeof($blogMonth); $i++) {
+        echo generateBlogPost($i, $blogMonth[$i]);
+    }
+
+    return true;
+}
+
 ?>

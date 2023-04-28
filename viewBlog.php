@@ -1,6 +1,16 @@
 <?php
 include 'sessionManager.php';
 if (!checkSession()) { session_destroy(); }
+
+$months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+$month = 1;
+
+$monthlyBlog = true;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $month = $_POST['month'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,15 +33,28 @@ if (!checkSession()) { session_destroy(); }
         <?php require_once('topbar.php'); 
         require_once('footer.php') ?>
 
-        
             <main id="about-page" class="container-grid">
                 <section id="block1" class="flexVert">
                     <h1> Blog:posts </h1>
                     
+                    <div id="month-selector"class="inline-flex">
+
+                        <button onclick="prevMonth()" id="button-nextMonth"> < </button>
+                            <form id="month-selector-form" action="viewBlog.php" method="POST" onsubmit="haltSubmit()">
+                                <input type="number" style="color:black;" id="currentMonth" name="month" value="<?php echo $month;?>" hidden readonly>
+                                <p id="month"> <?php echo $months[$month-1];?> </p>
+                                
+                                
+                            </form>
+                        <button onclick="nextMonth()" id="button-nextMonth"> > </button>
+
+                        <script src="js/monthSelector.js"></script>
+                    </div>
+
                     <div id="content">
                         <?php 
                         require_once('blogHandler.php');
-                        if (!displayBlog()) { echo '<p id="blogNotice"> There are no blog posts atm :( </br> how about you post something ;)</p>'; }
+                        if ((($monthlyBlog) ? !displayBlogMonth($month) : !displayBlog())) { echo '<p id="blogNotice"> There are no blog posts atm :( </br> how about you post something ;)</p>'; }
                         else { echo '<p id="blogNotice"> -- END -- </p>'; }
                         ?>
                     </div>
@@ -46,3 +69,25 @@ if (!checkSession()) { session_destroy(); }
         </div>
     </body>
 </html>
+
+<div id="month-selector"class="inline-flex">
+
+    <button onclick="prevMonth()" id="button-nextMonth"> < </button>
+        <form id="month-selector-form" action="viewBlog.php" onsubmit="haltSubmit()">
+            <input type="number" style="color:black;" id="currentMonth" name="month" value="<?php echo $month;?>" hidden readonly>
+            <p id="month"> <?php echo $months[$month-1];?> </p>
+            
+            
+        </form>
+    <button onclick="nextMonth()" id="button-nextMonth"> > </button>
+
+    <script src="js/monthSelector.js"></script>
+</div>
+
+<div id="content">
+    <?php 
+    require_once('blogHandler.php');
+    if ((($monthlyBlog) ? !displayBlogMonth($month) : !displayBlog())) { echo '<p id="blogNotice"> There are no blog posts atm :( </br> how about you post something ;)</p>'; }
+    else { echo '<p id="blogNotice"> -- END -- </p>'; }
+    ?>
+</div>
